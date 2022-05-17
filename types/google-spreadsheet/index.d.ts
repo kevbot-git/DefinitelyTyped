@@ -120,6 +120,11 @@ export interface WorksheetDimensionBounds {
     endIndex: number;
 }
 
+export interface WorksheetRowRange {
+    start?: number;
+    end?: number;
+}
+
 export interface Color {
     red: number;
     green: number;
@@ -829,6 +834,12 @@ export class GoogleSpreadsheetWorksheet implements WorksheetBasicProperties {
 
     /**
      * @description
+     * clear rows in a worksheet (defaults to rows after header)
+     */
+     clearRows(options?: WorksheetRowRange): Promise<void>;
+
+    /**
+     * @description
      * update basic worksheet properties
      *
      * @param properties
@@ -872,9 +883,9 @@ export class GoogleSpreadsheetWorksheet implements WorksheetBasicProperties {
 
     /**
      * @description
-     * clear all data/cells in the worksheet
+     * clear all data/cells in the worksheet or pass in a specific a1 range to be cleared
      */
-    clear(): Promise<void>;
+    clear(a1Range?: string): Promise<void>;
 
     /**
      * @description
