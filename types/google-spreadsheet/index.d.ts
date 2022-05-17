@@ -835,6 +835,8 @@ export class GoogleSpreadsheetWorksheet implements WorksheetBasicProperties {
     /**
      * @description
      * clear rows in a worksheet (defaults to rows after header)
+     *
+     * @param options object containing the row range to be cleared
      */
      clearRows(options?: WorksheetRowRange): Promise<void>;
 
@@ -883,7 +885,9 @@ export class GoogleSpreadsheetWorksheet implements WorksheetBasicProperties {
 
     /**
      * @description
-     * clear all data/cells in the worksheet or pass in a specific a1 range to be cleared
+     * clear all data/cells in the worksheet or pass in a specific A1 formatted range to be cleared
+     *
+     * @param a1Range the A1 formatted range to clear
      */
     clear(a1Range?: string): Promise<void>;
 
